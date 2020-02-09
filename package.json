@@ -1,0 +1,56 @@
+{
+  "name": "@dazejs/jwt-provider",
+  "version": "0.0.1",
+  "description": "json web token service for dazejs",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "clean": "rimraf dist/*",
+    "dev": "npm run clean && tsc -w",
+    "build": "npm run clean && tsc",
+    "example": "cross-env DAZE_ENV=prod DEBUG=jwt-provider:* nodemon --signal SIGTERM --exec ts-node example/index.ts --source-map --preserve-symlinks",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "jwt",
+    "token",
+    "jsonwebtoken",
+    "dazejs"
+  ],
+  "author": "chan zewail",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.15.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@dazejs/framework": ">=2.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@dazejs/framework": "^2.4.0",
+    "@types/jest": "^25.1.2",
+    "@types/jsonwebtoken": "^8.3.7",
+    "@types/node": "^12.7.5",
+    "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "commitlint": "^8.3.5",
+    "cross-env": "^5.2.1",
+    "eslint": "^5.2.0",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "nodemon": "^1.19.4",
+    "rimraf": "^3.0.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.2.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  }
+}
