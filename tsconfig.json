@@ -5,6 +5,7 @@
       "lib": [
         "esnext"
       ], 
+      "outDir": "./dist",
       "allowJs": false, 
       "declaration": true, 
       "sourceMap": true,
