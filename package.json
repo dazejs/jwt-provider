@@ -1,6 +1,6 @@
 {
   "name": "@dazejs/jwt-provider",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "json web token service for dazejs",
   "main": "dist/index.js",
   "scripts": {

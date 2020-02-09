@@ -6,7 +6,7 @@ export default class Example extends Controller {
 
   @inject(Jwt) jwt: Jwt;
 
-  @http.get()
+  @http.get('sign')
   sign() {
     return this.jwt.sign({
       uid: 1
@@ -16,5 +16,10 @@ export default class Example extends Controller {
   @http.get('verify')
   verify() {
     return this.jwt.verify(this.request.getParam('token'));
+  }
+
+  @http.get('decode')
+  decode() {
+    return this.jwt.decode(this.request.getParam('token'));
   }
 }

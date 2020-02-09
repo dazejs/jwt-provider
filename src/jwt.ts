@@ -76,19 +76,14 @@ export class Jwt {
     const algorithm = this.options.algorithm ?? 'HS256';
     // HMAC
     if (algorithm.startsWith('HS')) {
-      if (!this.options.secret) throw new Error('HMAC algorithm must set secret');
+      if (!this.options.secret) throw new Error(`${algorithm} algorithm must set secret`);
       return this.options.secret;
     };
-    // RSASSA
-    if (algorithm.startsWith('RS')) {
-      if (!this.options.privateKey) throw new Error('RSASSA algorithm must set privateKey');
+    // RSASSA / ECDSA
+    if (algorithm.startsWith('RS') || algorithm.startsWith('ES')) {
+      if (!this.options.privateKey) throw new Error(`${algorithm} algorithm must set privateKey`);
       return this.options.privateKey;
     }
-    // ECDSA
-    if (algorithm.startsWith('ES')) {
-      if (!this.options.privateKey) throw new Error('ECDSA algorithm must set privateKey');
-      return this.options.privateKey;
-    };
     return '';
   }
 
@@ -99,16 +94,11 @@ export class Jwt {
       if (!this.options.secret) throw new Error('HMAC algorithm must set secret');
       return this.options.secret;
     };
-    // RSASSA
-    if (algorithm.startsWith('RS')) {
-      if (!this.options.publicKey) throw new Error('RSASSA algorithm must set publicKey');
+    // RSASSA / ECDSA
+    if (algorithm.startsWith('RS') || algorithm.startsWith('ES')) {
+      if (!this.options.publicKey) throw new Error(`${algorithm} algorithm must set privateKey`);
       return this.options.publicKey;
     }
-    // ECDSA
-    if (algorithm.startsWith('ES')) {
-      if (!this.options.publicKey) throw new Error('ECDSA algorithm must set publicKey');
-      return this.options.publicKey;
-    };
     return '';
   }
 }
