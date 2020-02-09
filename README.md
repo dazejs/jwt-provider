@@ -1,7 +1,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/dazejs/jwt-provider.svg)](https://github.com/dazejs/jwt-provider/issues)
 [![npm](https://img.shields.io/npm/v/@dazejs/jwt-provider.svg)](https://www.npmjs.com/package/@dazejs/jwt-provider)
 [![npm](https://img.shields.io/npm/dm/@dazejs/jwt-provider.svg)](https://www.npmjs.com/package/@dazejs/jwt-provider)
-[![actions](https://github.com/dazejs/jwt-provider/workflows/jwt%20CI/badge.svg?branch=master)](https://github.com/dazejs/jwt-provider/actions)
+[![actions](https://github.com/dazejs/jwt-provider/workflows/Node%20CI/badge.svg?branch=master)](https://github.com/dazejs/jwt-provider/actions)
 [![codecov](https://codecov.io/gh/dazejs/jwt-provider/branch/master/graph/badge.svg)](https://codecov.io/gh/dazejs/jwt-provider)
 [![GitHub license](https://img.shields.io/github/license/dazejs/jwt-provider.svg)](https://github.com/dazejs/jwt-provider/blob/master/LICENSE)
 
