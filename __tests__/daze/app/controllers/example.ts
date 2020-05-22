@@ -1,10 +1,10 @@
 // ts-ignore
-import { Controller, http, route, inject } from '@dazejs/framework';
+import { BaseController, http, controller, inject } from '@dazejs/framework';
 import { Jwt } from '../../../../src';
-@route()
-export default class Example extends Controller {
+@controller()
+export class Example extends BaseController {
 
-  @inject(Jwt) jwt: Jwt;
+  @inject() jwt: Jwt;
 
   @http.get('sign')
   sign() {

@@ -1,4 +1,4 @@
-import { Provider, provide, config } from '@dazejs/framework';
+import { BaseProvider, provide, conf } from '@dazejs/framework';
 import { Jwt } from './jwt';
 import * as jwt from 'jsonwebtoken';
 
@@ -9,7 +9,7 @@ export interface JwtServiceProviderOptions {
   algorithm?: jwt.Algorithm;
 }
 
-export class JwtServiceProvider extends Provider {
+export class JwtServiceProvider extends BaseProvider {
 
   private static secret?: string | Buffer;
 
@@ -19,9 +19,9 @@ export class JwtServiceProvider extends Provider {
 
   private static algorithm?: jwt.Algorithm;
 
-  @config('jwt', {}) jwtConfig: JwtServiceProviderOptions;
+  @conf('jwt', {}) jwtConfig: JwtServiceProviderOptions;
 
-  @provide(Jwt)
+  @provide()
   protected jwt(options: any) {
     return new Jwt(options);
   }
@@ -35,7 +35,7 @@ export class JwtServiceProvider extends Provider {
   }
 
   launch () {
-    this.app.make(Jwt, [{
+    this.app.make('jwt', [{
       secret: JwtServiceProvider.secret ?? this.jwtConfig.secret,
       publicKey: JwtServiceProvider.publicKey ?? this.jwtConfig.privateKey,
       privateKey: JwtServiceProvider.privateKey ?? this.jwtConfig.privateKey,
