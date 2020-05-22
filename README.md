@@ -51,12 +51,12 @@ import { Jwt } from '@dazejs/jwt-provider'
 @route('users')
 export class User extends Controller {
 
-    @inject(Jwt) jwtService: Jwt;
+    @inject() jwt: Jwt;
 
     // get /users
     @http.het()
     index() {
-        const token = this.jwtService.sign({
+        const token = this.jwt.sign({
           uid: 1
         })
         return token
