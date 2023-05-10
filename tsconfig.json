@@ -28,8 +28,7 @@
       "preserveSymlinks": true
     },
     "include": [
-      "src/**/*.ts",
-      "types/**/*.d.ts",
+      "src"
     ],
     "exclude": [
       "node_modules"

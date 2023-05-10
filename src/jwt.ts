@@ -7,20 +7,6 @@ export interface JwtOptions {
   algorithm: jwt.Algorithm;
 }
 
-interface SignOption {
-  keyid?: string;
-  expiresIn?: string | number;
-  notBefore?: string | number;
-  audience?: string | string[];
-  subject?: string;
-  issuer?: string;
-  jwtid?: string;
-  mutatePayload?: boolean;
-  noTimestamp?: boolean;
-  header?: object;
-  encoding?: string;
-}
-
 interface VerifyOption {
   audience?: string | RegExp | Array<string | RegExp>;
   clockTimestamp?: number;
@@ -45,8 +31,8 @@ export class Jwt {
 
   sign(
     payload: string | Buffer | object,
-    options: SignOption = {}
-  ): string {
+    options: jwt.SignOptions = {}
+  ) {
     const key = this.getSecretOrPrivateKey();
     return jwt.sign(payload, key, {
       ...options,
